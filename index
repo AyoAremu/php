@@ -1,0 +1,127 @@
+  body{
+                background-color: lightgoldenrodyellow;
+            }
+            table {
+                color: #FF0000;
+                left:20%;
+                width:75%;
+                border-style: Solid;
+                border-color: cyan;
+                border-width:30px;
+                padding:20px;
+            }
+            td{
+                color: #FF0000;
+                border-style: Solid;
+                border-color:coral;
+                border-width:30px;
+                padding:20px;  
+            }
+            th{
+                color: #FF0000;
+                border-style: Solid;
+                border-color:greenyellow;
+                border-width:30px;
+                padding:20px;  
+            }
+            form{
+                width:75%;
+                background-color:lightcyan;
+            }
+            h1{
+                color:#ff3333;
+                background-color: lime;
+                height:50px;
+                font-family: verona;
+            }
+        </style>
+    </head>
+
+    <body>
+        <form action="index.php" method="post" onsubmit="alert('Data is good'){
+                    return false
+                }">   
+            <table>
+                <tr>
+                <h1>Please select your favorite Eatable</h1> <br>             
+                <th><input type="radio" name="color" value="burgers"> Burgers   </th>       
+                <th> <input type="radio" name="color" value="fries">   Fries </th>
+                <th> <input type="radio" name="color" value="drinks">  Drinks</th>
+                </tr>
+                <tr>
+                    <td><Input type = "radio" name="color1" value= "cheese">Cheese<br>($7.99)</td>
+                    <td><Input type = "radio" name ="color1" value= "large">Large<br>($4.99)</td>
+                    <td><Input type = "radio" name ="color1" value= "coke">Coke<br>($0.99)</td>
+                </tr>;
+                <tr>
+                    <td><Input type = "radio" name ="color2" value= "angus">Angus<br>($9.99)</td>
+                    <td><Input type = "radio" name ="color2" value= "medium">Medium<br>($3.99)</td>
+                    <td><Input type = "radio" name ="color2" value= "drinks">Drinks<br>($0.99)</td>
+                </tr>
+                <tr>
+                    <td><Input type = "radio" name ="color3" value= "chicken">Chicken<br>($5.99)</td>
+                    <td><Input type = "radio" name ="color3" value= "small">Small<br>($2.99)</td>
+                    <td><Input type = "radio" name ="color3" value= "nestea" >Nestea<br> ($0.99)</td>
+                    
+                </tr>
+            </table>
+            <p><input type="submit" value="Submit" name="submit"> </p>
+            <Input type = "textbox" name="rows">Enter the rows<br>
+            <Input type = "textbox" name="columns">Enter the columns to multiply<br>
+            <p><input type="submit" value="OK" name="submit"> </p><br>
+            <?php
+            $aErr = $bErr = $cErr = $dErr = "";
+            $burgers = $b = $c = $d = "";
+            $a = 7.99;
+            $b = 4.99;
+            $c = 0.99;
+            $d = 9.99;
+            $e = 3.99;
+            $f = 0.99;
+            $g = 5.99;
+            $h = 2.99;
+            $i = 0.99;
+            $color = "";
+            echo "<br> <h2>Multiplication Table</h2><br>";
+
+            $start = 1;
+            $times = 10;
+            $multi = array();
+
+            for ($start; $start < 11; $start++) {
+                $multi[$start] = $start * $times;
+            }
+
+            $end = count($multi);
+            for ($end; $end > 0; $end--) {
+                echo $times . " x " . $end . " = " . $multi[$end];
+                echo "<br>";
+            }
+            echo "<br>", "<br>";
+            
+
+            function result() {
+//      if(  $color == $Burgers ) 
+                // {
+                //   echo"Your choice is ".$_POST[$a];
+                //}else if( $color == $Fries){
+//echo"Your choice is ".$_POST["$b"];  
+                //}else{
+                //    echo"Your choice is ".$_POST["$c"];
+                //}
+                echo "You chose " . $_POST["color"];
+                echo "<br>";
+                echo "Your choice is " . $_POST["color1"];
+                echo "<br>";
+                echo "Your choice is " . $_POST["color2"];
+                echo "<br>";
+                echo "Your choice is " . $_POST["color3"];
+                echo "<br>";
+            }
+            
+            if (isset($_POST['submit'])) {
+                result();
+            }
+            ?>
+    </body>
+</html>
